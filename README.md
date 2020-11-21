@@ -84,7 +84,7 @@ the stored alert should
 
 ### <u>Rest API </u>
 
-#####Set an action for an alert type End Point:
+####Set an action for an alert type End Point:
 URI : /api/actions <br>
 METHOD : POST <br>
 Body : JSON with the following fields:
@@ -95,7 +95,7 @@ Body : JSON with the following fields:
 | action | Enum | (SendMail, Webhook , Send SMS)
 | config | JSON | see [config](#uchoosing-the-right-action-for-the-alertu)
 
-#####List alerts End Point:
+####List alerts End Point:
 URI : /api/alerts <br>
 METHOD : GET <br>
 
@@ -121,7 +121,7 @@ JSON Array with items containing the following fields:
 | actionPerformed | Enum ||
 | actionConfig| JSON | |
 
-##### Acknowledge Alerts Endpoint
+#### Acknowledge Alerts Endpoint
 URI : /api/alerts <br>
 METHOD : POST<br>
 Body: json array Of alert ids to acknowledge e.g `["333sd-3323d-3223d-xsdsf","333sd-3323d-3223d-xsdst"]`
