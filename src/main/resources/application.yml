@@ -11,6 +11,12 @@ alert-manager:
     partitions: 3
     replicas: 0
 
+---
+
+spring:
+  config:
+    activate:
+      on-profile: h2
 
 ---
 spring:
