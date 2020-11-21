@@ -2,6 +2,7 @@ package com.alertmanager.demo.Utils;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -10,13 +11,8 @@ import javax.persistence.Converter;
 
 @Converter
 public class StringMapConverter implements AttributeConverter<Map<String, Object>, String> {
+    private static final ObjectMapper json = new ObjectMapper().findAndRegisterModules();
 
-    private static ObjectMapper mapper;
-
-    static {
-        // To avoid instantiating ObjectMapper again and again.
-        mapper = new ObjectMapper();
-    }
 
     @Override
     public String convertToDatabaseColumn(Map<String, Object> data) {
@@ -26,7 +22,7 @@ public class StringMapConverter implements AttributeConverter<Map<String, Object
         }
 
         try {
-            return mapper.writeValueAsString(data);
+            return json.writeValueAsString(data);
 
         } catch (IOException e) {
             throw new IllegalArgumentException("Error converting map to JSON", e);
@@ -41,7 +37,7 @@ public class StringMapConverter implements AttributeConverter<Map<String, Object
         }
 
         try {
-            return mapper.readValue(s, new TypeReference<>() {
+            return json.readValue(s, new TypeReference<>() {
             });
 
         } catch (IOException e) {
