@@ -1,0 +1,11 @@
+spring:
+  kafka:
+    streams:
+      application-id: alert-manager
+      bootstrap-servers: localhost:9092
+alert-manager:
+  alerts-topic:
+    name: alerts
+    partitions: 3
+    replicas: 0
+
