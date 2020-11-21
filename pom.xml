@@ -16,6 +16,7 @@
 
     <properties>
         <java.version>11</java.version>
+        <active.profile>h2</active.profile>
     </properties>
 
     <dependencies>
@@ -87,6 +88,9 @@
         </profile>
         <profile>
             <id>postgresql</id>
+            <properties>
+                <active.profile>postgresql</active.profile>
+            </properties>
             <dependencies>
                 <dependency>
                     <groupId>org.postgresql</groupId>

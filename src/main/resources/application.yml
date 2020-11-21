@@ -3,9 +3,24 @@ spring:
     streams:
       application-id: alert-manager
       bootstrap-servers: localhost:9092
+  profiles:
+    active: @active.profile@
 alert-manager:
   alerts-topic:
     name: alerts
     partitions: 3
     replicas: 0
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: postegrsql
+  datasource:
+    hikari:
+      jdbc-url:
+      username:
+      password:
+
 
